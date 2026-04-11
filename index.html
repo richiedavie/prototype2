@@ -119,6 +119,85 @@
             width: min(92vw, 720px);
         }
 
+        /* ── MODAL STYLES ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(6, 6, 8, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 3rem 2rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--faint);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: none;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--gold-dim);
+            color: var(--gold);
+        }
+
+        .sub-projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .sub-projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 2.5rem 1.25rem;
+            }
+        }
+
         .nav-brand {
             font-family: 'Playfair Display', serif;
             font-weight: 900;
@@ -850,6 +929,15 @@
             filter: grayscale(0%);
         }
 
+        .project-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
         /* placeholder thumb */
         .project-thumb-placeholder {
             width: 100%;
@@ -1305,13 +1393,13 @@
                             design, logical structuring, and user interaction.</div>
                     </div>
                 </div>
-                <div class="project-card reveal">
+                <div class="project-card reveal" id="blenderTrigger" style="cursor: none;">
                     <div class="project-thumb-placeholder">💡</div>
                     <div class="project-body">
-                        <span class="project-tag">Tech Stack — Date</span>
-                        <div class="project-title">Future Innovation</div>
-                        <div class="project-desc">A brief description of your sixth project. This is a great place to
-                            showcase your latest work or a concept you are currently developing to show your progress.
+                        <span class="project-tag">Project Blender — 7 July 2024 - 2025</span>
+                        <div class="project-title">Project Blender ARVR</div>
+                        <div class="project-desc">My blender project that I make when i was on the extracurricular name
+                            ARVR [Augment Reality & Virtual Reality]
                         </div>
                     </div>
                 </div>
@@ -1327,14 +1415,58 @@
                 <p class="contact-sub">Got a project in mind, You can chat to my inbox and talk together :)</p>
                 <a href="mailto:Ritchie@gmail.com" class="email-big">ritchxdave@gmail.com</a>
                 <div class="contact-links">
-                    <a href="mailto:dellinspironx208@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email Me</a>
-                    <a href="https://github.com/richiedavie" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.instagram.com/ritchxdavie/" class="contact-link"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="https://discord.com/users/998460294458265672" class="contact-link"><i class="fab fa-discord"></i> Discord</a>
+                    <a href="mailto:dellinspironx208@gmail.com" class="contact-link"><i class="fas fa-envelope"></i>
+                        Email Me</a>
+                    <a href="https://github.com/richiedavie" class="contact-link"><i class="fab fa-github"></i>
+                        GitHub</a>
+                    <a href="https://www.instagram.com/ritchxdavie/" class="contact-link"><i
+                            class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://discord.com/users/998460294458265672" class="contact-link"><i
+                            class="fab fa-discord"></i> Discord</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ══ MODAL FOR BLENDER PROJECTS ══ -->
+    <div class="modal-overlay" id="blenderModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <span class="section-label">// Blender Collection</span>
+                <h2 class="tl-title" style="font-size: 2rem; margin-top: 0.5rem;">Project Animation 3D</h2>
+                <p class="project-desc">This is the list of the Project that I've do on Blender.</p>
+            </div>
+            <div class="sub-projects-grid">
+                <!-- Tile 1 -->
+                <div class="project-card">
+                    <video class="project-video" autoplay loop muted playsinline>
+                        <source src="3D-Animation.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-body">
+                        <span class="project-tag">17 February 2025</span>
+                        <div class="project-title">Project Animation 3D [Assignment]</div>
+                        <div class="project-desc">This is a A dynamic low-poly sequence featuring smooth camera tracking
+                            and vehicle animation. The scene follows a pickup truck through a detailed city environment,
+                            concluding with an aerial reveal of a hovering helicopter</div>
+                    </div>
+                </div>
+                <!-- Tile 2 -->
+                <div class="project-card">
+                    <video class="project-video" autoplay loop muted playsinline>
+                        <source src="ProductAnimation.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-body">
+                        <span class="project-tag">17 June 2025</span>
+                        <div class="project-title">Project Product Animation</div>
+                        <div class="project-desc">A professional product visualization featuring three beverage bottles.
+                            This animation focuses on multi-camera switching and dynamic rotation to showcase the
+                            product from various angles within a clean, studio-lit environment.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ══ FOOTER ══ -->
     <footer>
@@ -1363,7 +1495,7 @@
         }
         animRing();
 
-        document.querySelectorAll('a, button, .project-card, .skill-card, .contact-link').forEach(el => {
+        document.querySelectorAll('a, button, .project-card, .skill-card, .contact-link, .modal-close').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.width = '20px'; cursor.style.height = '20px';
                 ring.style.width = '52px'; ring.style.height = '52px'; ring.style.opacity = '0.3';
@@ -1420,6 +1552,24 @@
                 if (el) window.scrollTo({ top: el.offsetTop - 90, behavior: 'smooth' });
             });
         });
+
+        // ── MODAL LOGIC ──
+        const blenderTrigger = document.getElementById('blenderTrigger');
+        const blenderModal = document.getElementById('blenderModal');
+        const closeModal = document.getElementById('closeModal');
+
+        blenderTrigger.addEventListener('click', () => {
+            blenderModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        });
+
+        const closeFn = () => {
+            blenderModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scroll
+        };
+
+        closeModal.addEventListener('click', closeFn);
+        blenderModal.addEventListener('click', (e) => { if (e.target === blenderModal) closeFn(); });
 
         // ── REVEAL on scroll ──
         const reveals = document.querySelectorAll('.reveal');
