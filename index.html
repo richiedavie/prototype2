@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Rit — Portfolio</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <style>
@@ -40,7 +40,6 @@
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
-            cursor: none;
         }
 
         /* ── CUSTOM CURSOR ── */
@@ -172,7 +171,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: none;
             transition: all 0.2s;
         }
 
@@ -396,6 +394,7 @@
         #hero h1 em {
             font-style: italic;
             color: var(--gold);
+            font-weight: 900;
         }
 
         .hero-desc {
@@ -425,7 +424,6 @@
             font-weight: 500;
             letter-spacing: 0.3px;
             transition: all 0.25s;
-            cursor: none;
         }
 
         .btn-primary {
@@ -485,45 +483,6 @@
             inset: 0;
             background: linear-gradient(to top, rgba(10, 10, 15, 0.6) 0%, transparent 50%);
             pointer-events: none;
-        }
-
-        /* floating badge */
-        .hero-badge {
-            position: absolute;
-            bottom: -16px;
-            left: -24px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.8rem;
-            color: var(--muted);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            white-space: nowrap;
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #4ade80;
-            animation: pulse-dot 2s infinite;
-        }
-
-        @keyframes pulse-dot {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
-            }
         }
 
         /* scroll hint */
@@ -906,7 +865,6 @@
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.3s ease;
-            cursor: none;
         }
 
         .project-card:hover {
@@ -1020,7 +978,6 @@
             color: var(--muted);
             background: var(--card);
             transition: all 0.25s;
-            cursor: none;
         }
 
         .contact-link:hover {
@@ -1123,10 +1080,6 @@
     <!-- bg layer -->
     <div class="bg-canvas"></div>
 
-    <!-- CUSTOM CURSOR -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
-
     <!-- ══ NAVBAR ══ -->
     <nav id="navbar">
         <span class="nav-brand">My Web Portfolio</span>
@@ -1159,10 +1112,6 @@
                     <!-- Replace src with your actual image path -->
                     <img src="Screenshot (66).png" alt="Rit"
                         onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:5rem;color:rgba(201,169,110,0.2)\'>🧑‍💻</div>'" />
-                </div>
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Available for projects
                 </div>
             </div>
         </div>
@@ -1249,18 +1198,6 @@
                         constructing device interfaces that are professional looking and responsive. In addition to
                         that, I also personalize styled components in Bootstrap to meet the various visual identities of
                         different applications.</div>
-                </div>
-                <div class="skill-card reveal">
-                    <span class="skill-icon">🐍</span>
-                    <div class="skill-name">Python</div>
-                    <div class="skill-desc">Built computer vision projects with OpenCV & MediaPipe. Comfortable with
-                        scripting, automation, and creative experiments.</div>
-                </div>
-                <div class="skill-card reveal">
-                    <span class="skill-icon">🎮</span>
-                    <div class="skill-name">Scratch / Game Dev</div>
-                    <div class="skill-desc">Created multiple mini-games from grade 7 onward. Comfortable with game
-                        logic, user interaction, and polish.</div>
                 </div>
             </div>
         </div>
@@ -1393,8 +1330,8 @@
                             design, logical structuring, and user interaction.</div>
                     </div>
                 </div>
-                <div class="project-card reveal" id="blenderTrigger" style="cursor: none;">
-                    <div class="project-thumb-placeholder">💡</div>
+                <div class="project-card reveal" id="blenderTrigger">
+                     <img src="Thumbnailblend.png" alt="Project Blender" class="project-thumb">
                     <div class="project-body">
                         <span class="project-tag">Project Blender — 7 July 2024 - 2025</span>
                         <div class="project-title">Project Blender ARVR</div>
@@ -1412,7 +1349,7 @@
         <div class="container">
             <div class="contact-inner reveal">
                 <h2 class="section-title">Let's Work Together</h2>
-                <p class="contact-sub">Got a project in mind, You can chat to my inbox and talk together :)</p>
+                <p class="contact-sub">Soooo you're interested in me? hehe, You can chat to my inbox and talk together :)</p>
                 <a href="mailto:Ritchie@gmail.com" class="email-big">ritchxdave@gmail.com</a>
                 <div class="contact-links">
                     <a href="mailto:dellinspironx208@gmail.com" class="contact-link"><i class="fas fa-envelope"></i>
@@ -1476,36 +1413,6 @@
     </footer>
 
     <script>
-        // ── CURSOR ──
-        const cursor = document.getElementById('cursor');
-        const ring = document.getElementById('cursorRing');
-        let mx = 0, my = 0, rx = 0, ry = 0;
-
-        document.addEventListener('mousemove', e => {
-            mx = e.clientX; my = e.clientY;
-            cursor.style.left = mx + 'px';
-            cursor.style.top = my + 'px';
-        });
-        function animRing() {
-            rx += (mx - rx) * 0.12;
-            ry += (my - ry) * 0.12;
-            ring.style.left = rx + 'px';
-            ring.style.top = ry + 'px';
-            requestAnimationFrame(animRing);
-        }
-        animRing();
-
-        document.querySelectorAll('a, button, .project-card, .skill-card, .contact-link, .modal-close').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '20px'; cursor.style.height = '20px';
-                ring.style.width = '52px'; ring.style.height = '52px'; ring.style.opacity = '0.3';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '12px'; cursor.style.height = '12px';
-                ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '0.5';
-            });
-        });
-
         // ── TYPING ──
         const typed = document.getElementById('typed');
         const text = "Hey Folks,\nI'm Rit!";
